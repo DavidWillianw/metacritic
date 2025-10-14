@@ -1,49 +1,55 @@
-<div class="entry-content chart-page-full-bleed">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metacritic</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/f/f2/Metacritic_M.png">
+  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/f/f2/Metacritic_M.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=4">
+</head>
 
-<title>Metacritic</title>
-  <script src="script.js"></script>
-<div class="metacritic-page-container">
-    <div class="metacritic-wrapper">
-        
+<body>
+  <div class="entry-content chart-page-full-bleed">
+    <div class="metacritic-page-container">
+      <div class="metacritic-wrapper">
+
         <div id="home-view">
-            <div class="search-bar-container">
-                <div class="search-bar">
-                    <input type="text" id="search-input" placeholder="Search albums & artists...">
-                    <i class="fa fa-search"></i>
-                </div>
+          <div class="search-bar-container">
+            <div class="search-bar">
+              <input type="text" id="search-input" placeholder="Search albums & artists...">
+              <i class="fa fa-search"></i>
             </div>
+          </div>
 
-            <button id="clear-filter-button" style="display: none;">&laquo; Back to All Releases</button>
+          <button id="clear-filter-button" style="display: none;">&laquo; Back to All Releases</button>
 
-            <div class="content-area">
-                <div class="main-col">
-                    <div class="section-header">Most Acclaimed</div>
-                    <div id="featured-releases"></div>
-                </div>
-                <div class="side-col">
-                    <div class="section-header">All Releases <a href="#">see all »</a></div>
-                    <div id="more-releases" class="more-releases-list"></div>
-                </div>
+          <div class="content-area">
+            <div class="main-col">
+              <div class="section-header">Most Acclaimed</div>
+              <div id="featured-releases"></div>
             </div>
+            <div class="side-col">
+              <div class="section-header">All Releases <a href="#">see all »</a></div>
+              <div id="more-releases" class="more-releases-list"></div>
+            </div>
+          </div>
         </div>
 
         <div id="details-view">
-            <button id="back-button">&laquo; Back to All Releases</button>
-            <div id="album-details-content"></div>
+          <button id="back-button">&laquo; Back to All Releases</button>
+          <div id="album-details-content"></div>
         </div>
+
+      </div>
     </div>
-</div>
+  </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-
-
-
-</div>
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
