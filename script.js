@@ -143,16 +143,14 @@ document.addEventListener('DOMContentLoaded', function() {
 ];
     
     // =================================================================
-    //  DADOS DAS CRÍTICAS - ADICIONE AQUI
+    //  DADOS DAS CRÍTICAS 
     // =================================================================
     const CriticasGrandes = [
         { albumId: 'sinners-to-repentance', publication: 'Pop Divas Magazine', score: 100, reviewText: 'Uma obra-prima impecável. Crystal redefine o que é possível na música pop.' },
         { albumId: 'purple-moon', publication: 'The Music Journal', score: 95, reviewText: 'Um som de outro mundo. Luna Raven cria uma atmosfera que é totalmente sua, onde cada nota, cada batida e cada nuance vocal transporta o ouvinte para uma dimensão diferente. Desde a primeira faixa, percebe-se uma identidade sonora única, uma assinatura que mistura elementos de mistério, intensidade e sensibilidade de uma forma que poucas artistas conseguem. A maneira como ela trabalha a dinâmica entre silêncio e explosão sonora demonstra maturidade e um domínio absoluto da produção musical. '},
     ];
     
-    // =================================================================
-    // O restante do seu código JS começa aqui
-    // =================================================================
+
     const homeView = document.getElementById('home-view');
     const detailsView = document.getElementById('details-view');
     const featuredContainer = document.getElementById('featured-releases');
