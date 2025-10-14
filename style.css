@@ -1,309 +1,282 @@
-/* ------------------ Tema Metacritic Adaptado (v2) ------------------*/
+/* ------------------ Tema Metacritic Adaptado ------------------ */
 :root {
-    --mc-bg-color: #ffffff;
-    --mc-card-color: #ffffff;
-    --mc-border-color: #e0e0e0;
-    --mc-primary-text: #212121;
-    --mc-secondary-text: #757575;
-    --mc-link-color: #2196f3;
-    --mc-header-bg: #f5f5f5;
-    --mc-score-green: #6c3;
-    --mc-score-yellow: #fc3;
-    --mc-score-red: #f00;
-    --mc-score-tbd: #ccc;
-    
-    /* Variáveis para espaçamento e fontes para fácil manutenção */
-    --spacing-xs: 8px;
-    --spacing-s: 15px;
-    --spacing-m: 20px;
-    --spacing-l: 25px;
-    --font-sans: 'Roboto', sans-serif;
-    --font-display: 'Oswald', sans-serif;
-    --font-serif: Georgia, serif;
+  --mc-bg-color: #ffffff;
+  --mc-card-color: #ffffff;
+  --mc-border-color: #e0e0e0;
+  --mc-primary-text: #212121;
+  --mc-secondary-text: #757575;
+  --mc-link-color: #2196f3;
+  --mc-header-bg: #f5f5f5;
+  --mc-score-green: #6c3;
+  --mc-score-yellow: #fc3;
+  --mc-score-red: #f00;
+  --mc-score-tbd: #ccc;
 }
 
-/* ------------------ Reset e Layout Base ------------------ */
+/* ------------------ Layout Base ------------------ */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--mc-bg-color);
+  color: var(--mc-primary-text);
+  margin: 0;
+  padding: 0;
+}
+
 *, *::before, *::after {
-    box-sizing: border-box;
-}
-
-.entry-content, .metacritic-page-container {
-    font-family: var(--font-sans) !important;
-    background: var(--mc-bg-color) !important;
-    color: var(--mc-primary-text) !important;
-    padding: 0 !important;
+  box-sizing: border-box;
 }
 
 .metacritic-wrapper {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: var(--spacing-m) var(--spacing-s);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 15px;
 }
 
 /* ------------------ Barra de Busca ------------------ */
 .search-bar-container {
-    padding: var(--spacing-s);
-    margin-bottom: var(--spacing-m);
-    background-color: var(--mc-header-bg);
-    border-bottom: 1px solid var(--mc-border-color);
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: var(--mc-header-bg);
+  border-bottom: 1px solid var(--mc-border-color);
+  display: flex;
+  justify-content: center;
 }
+
 .search-bar {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
 }
+
 #search-input {
-    width: 100%;
-    padding: 10px 40px 10px var(--spacing-s);
-    border: 1px solid var(--mc-border-color);
-    border-radius: 20px;
-    background: var(--mc-card-color);
-    color: var(--mc-primary-text);
-    font-size: 16px;
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: 1px solid var(--mc-border-color);
+  border-radius: 20px;
+  background: var(--mc-card-color);
+  color: var(--mc-primary-text);
+  font-size: 16px;
 }
+
 .search-bar i {
-    position: absolute;
-    right: var(--spacing-s);
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--mc-secondary-text);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mc-secondary-text);
 }
 
-/* ------------------ Estrutura de Colunas (Mobile-First) ------------------ */
+/* ------------------ Estrutura de Duas Colunas ------------------ */
 .content-area {
-    display: grid; /* Usando Grid para layout principal */
-    gap: var(--spacing-l);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
-/* Em telas maiores (tablets e desktops), criamos as 2 colunas */
-@media (min-width: 768px) {
-    .content-area {
-        /* A coluna principal ocupa o espaço restante (1fr), a lateral tem 300px */
-        grid-template-columns: 1fr 300px;
-    }
+.main-col {
+  flex: 1;
+  min-width: 300px;
 }
 
+.side-col {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .side-col {
+    width: 300px;
+    flex-shrink: 0;
+  }
+}
+
+/* ------------------ Seções ------------------ */
 .section-header {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--mc-primary-text);
-    border-bottom: 2px solid var(--mc-primary-text);
-    padding-bottom: var(--spacing-xs);
-    margin-bottom: var(--spacing-s);
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--mc-primary-text);
+  border-bottom: 2px solid var(--mc-primary-text);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
 }
+
 .section-header a {
-    font-size: 11px;
-    float: right;
-    color: var(--mc-link-color);
-    line-height: 24px;
-    font-weight: normal;
+  font-size: 11px;
+  float: right;
+  color: var(--mc-link-color);
+  line-height: 24px;
+  font-weight: normal;
 }
 
-/* ------------------ Home: Lançamentos ------------------ */
+/* ------------------ Lançamentos ------------------ */
 #featured-releases {
-    display: grid;
-    /* Grade fluida que se adapta. Mínimo de 120px, máximo de 1 fração do espaço */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: var(--spacing-m);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
 }
+
 .featured-album-card {
-    text-align: center;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
-.featured-album-card .album-cover-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease;
-}
+
 .featured-album-card .album-cover-link:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
+
 .featured-album-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.featured-album-card .album-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--mc-primary-text);
-    margin-bottom: 5px;
-}
-.featured-album-card .artist-name {
-    font-size: 12px;
-}
-.featured-album-card .metascore {
-    margin: 8px auto;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* ------------------ Home: Mais Recentes (Sidebar) ------------------ */
+.album-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--mc-primary-text);
+  margin-bottom: 5px;
+}
+
+.artist-name {
+  font-size: 12px;
+  color: var(--mc-secondary-text);
+}
+
+/* ------------------ Sidebar ------------------ */
 .more-releases-list .release-item {
-    display: flex;
-    align-items: center;
-    padding: var(--spacing-xs) 0;
-    border-bottom: 1px solid var(--mc-border-color);
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--mc-border-color);
 }
+
 .more-releases-list .release-item:hover .release-title {
-    color: var(--mc-link-color);
+  color: var(--mc-link-color);
 }
-.more-releases-list .release-item .metascore {
-    margin-right: 10px;
-}
+
 .release-info .release-title {
-    font-size: 13px;
-    font-weight: bold;
+  font-size: 13px;
+  font-weight: bold;
 }
+
 .release-info .release-artist {
-    font-size: 11px;
-}
-.artist-name, .release-artist, .artist-link {
-    color: var(--mc-secondary-text);
-    text-decoration: none;
-}
-.artist-name:hover, .release-artist:hover, .artist-link:hover {
-    color: var(--mc-link-color);
-    text-decoration: underline;
+  font-size: 11px;
 }
 
-/* ------------------ Página de Detalhes do Álbum ------------------ */
-#details-view { display: none; }
-
-#back-button, #clear-filter-button, #take-picture-button {
-    background: var(--mc-header-bg);
-    color: var(--mc-primary-text);
-    border: 1px solid var(--mc-border-color);
-    padding: 8px var(--spacing-s);
-    font-family: var(--font-display);
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-bottom: var(--spacing-m);
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-#back-button:hover, #clear-filter-button:hover, #take-picture-button:hover {
-    background-color: #e0e0e0;
-}
-
-/* Layout de detalhes (Mobile-First) */
+/* ------------------ Página de Detalhes ------------------ */
 .details-product-summary {
-    display: flex;
-    /* Por padrão (mobile), os itens ficam em coluna e centralizados */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: var(--spacing-m);
-    padding-bottom: var(--spacing-m);
-    border-bottom: 1px solid var(--mc-border-color);
-    margin-bottom: var(--spacing-m);
-}
-/* Em telas maiores, volta ao layout lado a lado */
-@media (min-width: 500px) {
-    .details-product-summary {
-        flex-direction: row;
-        text-align: left;
-        align-items: flex-start;
-    }
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--mc-border-color);
+  margin-bottom: 20px;
 }
 
 .details-cover {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border-radius: 4px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
+
 .details-info .album-title {
-    margin-top: 0;
-    /* Tipografia fluida: ajusta o tamanho da fonte suavemente com a tela */
-    font-size: clamp(1.5rem, 5vw, 1.75rem); /* Mínimo, Ideal, Máximo */
+  font-size: 28px;
+  margin: 0;
 }
+
 .details-info .album-artist {
-    margin-bottom: 10px;
-    font-size: 18px;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
+
 .details-info .release-date {
-    font-size: 12px;
-    color: var(--mc-secondary-text);
-}
-.details-scores {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-m);
-    margin-top: var(--spacing-s);
-    justify-content: center; /* Centraliza no mobile */
-}
-/* Alinha à esquerda em telas maiores */
-@media (min-width: 500px) {
-    .details-scores {
-        justify-content: flex-start;
-    }
-}
-
-/* Critic Reviews */
-.critic_review {
-    display: flex;
-    flex-direction: column; /* Padrão mobile: empilhado */
-    gap: var(--spacing-s);
-    padding: var(--spacing-s) 0;
-    border-bottom: 1px solid var(--mc-border-color);
-}
-/* Em telas maiores, os itens ficam lado a lado */
-@media (min-width: 500px) {
-    .critic_review {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-}
-.critic_review:last-of-type { border-bottom: none; }
-
-.review-grade .metascore {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    border-radius: 6px;
-}
-.review-critic .source { font-weight: bold; }
-.review-critic .date { font-size: 11px; color: var(--mc-secondary-text); }
-.review-body {
-    font-family: var(--font-serif);
-    font-size: 13px;
-    line-height: 1.6;
-    flex-grow: 1;
+  font-size: 12px;
+  color: var(--mc-secondary-text);
 }
 
 /* ------------------ Scores ------------------ */
 .metascore {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 6px;
 }
+
 .metascore.positive { background-color: var(--mc-score-green); }
 .metascore.mixed { background-color: var(--mc-score-yellow); }
 .metascore.negative { background-color: var(--mc-score-red); }
 
-/* Tamanhos de Score */
-.metascore { /* Tamanho padrão */
-    width: 45px;
-    height: 45px;
-    font-size: 24px;
-}
 .metascore.small {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
 }
+
 .metascore.large {
-    width: 60px;
-    height: 60px;
-    font-size: 32px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+}
+
+/* ------------------ Responsividade ------------------ */
+@media (max-width: 900px) {
+  .metacritic-wrapper {
+    padding: 15px;
+  }
+
+  .content-area {
+    flex-direction: column;
+  }
+
+  .side-col {
+    margin-top: 25px;
+  }
+
+  .details-product-summary {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .details-info .album-title {
+    font-size: 24px;
+  }
+
+  .details-scores {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .critic_review {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  #featured-releases {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .album-title {
+    font-size: 13px;
+  }
+
+  .details-info .album-title {
+    font-size: 22px;
+  }
+
+  .metascore.large {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
 }
