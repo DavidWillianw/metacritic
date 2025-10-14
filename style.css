@@ -1,0 +1,340 @@
+/* ------------------ Tema Metacritic Adaptado ------------------ */
+:root {
+    --mc-bg-color: #ffffff;
+    --mc-card-color: #ffffff;
+    --mc-border-color: #e0e0e0;
+    --mc-primary-text: #212121;
+    --mc-secondary-text: #757575;
+    --mc-link-color: #2196f3;
+    --mc-header-bg: #f5f5f5;
+    --mc-score-green: #6c3;
+    --mc-score-yellow: #fc3;
+    --mc-score-red: #f00;
+    --mc-score-tbd: #ccc;
+}
+
+/* ------------------ Layout Base ------------------ */
+.entry-content, .metacritic-page-container {
+    font-family: 'Roboto', sans-serif !important;
+    background: var(--mc-bg-color) !important;
+    color: var(--mc-primary-text) !important;
+    padding: 0 !important;
+    box-sizing: border-box; /* Garante consistência no layout */
+}
+*, *::before, *::after {
+    box-sizing: inherit; /* Herda o box-sizing para todos os elementos */
+}
+
+.metacritic-wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+/* ------------------ Barra de Busca ------------------ */
+.search-bar-container {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: var(--mc-header-bg);
+    border-bottom: 1px solid var(--mc-border-color);
+}
+.search-bar {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+#search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid var(--mc-border-color);
+    border-radius: 20px;
+    background: var(--mc-card-color);
+    color: var(--mc-primary-text);
+    font-size: 16px;
+}
+.search-bar i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--mc-secondary-text);
+}
+
+/* ------------------ Estrutura de Duas Colunas ------------------ */
+.content-area {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+    gap: 25px;
+}
+.main-col {
+    flex: 1; /* Ocupa o espaço disponível */
+    min-width: 300px; /* Largura mínima antes da quebra de linha */
+}
+.side-col {
+    width: 100%; /* Ocupa 100% da largura em telas pequenas */
+}
+@media (min-width: 801px) {
+    .side-col {
+        width: 300px; /* Largura fixa em telas maiores */
+        flex-shrink: 0; /* Impede que a coluna encolha */
+    }
+}
+
+.section-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--mc-primary-text);
+    border-bottom: 2px solid var(--mc-primary-text);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+.section-header a {
+    font-size: 11px;
+    float: right;
+    color: var(--mc-link-color);
+    line-height: 24px;
+    font-weight: normal;
+}
+
+/* ------------------ Home: Lançamentos ------------------ */
+#featured-releases {
+    display: grid;
+    /* Layout de grade fluido que se adapta ao espaço */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+}
+.featured-album-card {
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+.featured-album-card .album-cover-link:hover {
+    transform: translateY(-5px);
+}
+.featured-album-card .album-cover-link {
+    display: block; /* Faz o link ocupar o espaço da imagem */
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+.featured-album-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.featured-album-card .album-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--mc-primary-text);
+    margin-bottom: 5px;
+}
+.featured-album-card .artist-name {
+    font-size: 12px;
+}
+.featured-album-card .metascore {
+    margin: 8px auto;
+}
+
+/* ------------------ Home: Mais Recentes (Sidebar) ------------------ */
+.more-releases-list .release-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--mc-border-color);
+    cursor: pointer;
+}
+.more-releases-list .release-item:hover .release-title {
+    color: var(--mc-link-color);
+}
+.more-releases-list .release-item .metascore {
+    margin-right: 10px;
+}
+.release-info .release-title {
+    font-size: 13px;
+    font-weight: bold;
+}
+.release-info .release-artist {
+    font-size: 11px;
+}
+
+/* Estilos para os links de artista */
+.artist-name, .release-artist, .artist-link {
+    color: var(--mc-secondary-text);
+    text-decoration: none;
+    cursor: pointer;
+}
+.artist-name:hover, .release-artist:hover, .artist-link:hover {
+    color: var(--mc-link-color);
+    text-decoration: underline;
+}
+
+/* ------------------ Página de Detalhes do Álbum ------------------ */
+#details-view {
+    display: none;
+}
+
+/* Estilos para os botões "Back" e "Take Picture" */
+#back-button, #clear-filter-button, #take-picture-button {
+    background: var(--mc-header-bg);
+    color: var(--mc-primary-text);
+    border: 1px solid var(--mc-border-color);
+    padding: 8px 15px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+#back-button:hover, #clear-filter-button:hover, #take-picture-button:hover {
+    background-color: #e0e0e0;
+}
+.post-body img {
+    height: fit-content;
+}
+.details-product-summary {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--mc-border-color);
+    margin-bottom: 20px;
+}
+.details-cover {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+.details-info .album-title {
+    margin-top: 0;
+    font-size: 28px;
+}
+.details-info .album-artist {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.details-info .release-date {
+    font-size: 12px;
+    color: var(--mc-secondary-text);
+}
+.details-scores {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+.details-scores .score-box p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Critic Reviews */
+.critic_review {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--mc-border-color);
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+.critic_review:first-of-type {
+    padding-top: 0;
+}
+.critic_review:last-of-type {
+    border-bottom: none;
+}
+.review-grade .metascore {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 6px;
+}
+.review-critic .source {
+    font-weight: bold;
+}
+.review-critic .date {
+    font-size: 11px;
+    color: var(--mc-secondary-text);
+}
+.review-body {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* ------------------ Scores ------------------ */
+.metascore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+}
+.metascore.positive { background-color: var(--mc-score-green); }
+.metascore.mixed { background-color: var(--mc-score-yellow); }
+.metascore.negative { background-color: var(--mc-score-red); }
+
+/* Estilos para os tamanhos de score usados no JS */
+.metascore.small {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+}
+.metascore.large {
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+}
+
+/* ------------------ Responsividade ------------------ */
+@media (max-width: 800px) {
+    .metacritic-wrapper {
+        padding: 10px;
+    }
+    .side-col {
+        margin-top: 30px; /* Adiciona espaço quando as colunas empilham */
+    }
+    .details-product-summary {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .details-info .album-title {
+        font-size: 24px;
+    }
+    .details-scores {
+        justify-content: center;
+        width: 100%;
+    }
+    .critic_review {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+  .metascore.large {
+    margin-left: 15px;
+}
+}
+
+@media (max-width: 480px) {
+    .metascore.large {
+    margin-left: 15px;
+}
+    #featured-releases {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .details-info .album-title {
+        font-size: 22px;
+    }
+}
